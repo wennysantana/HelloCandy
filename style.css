@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(254,208,228);
+    background: radial-gradient(circle, rgba(254,208,228,1) 0%, rgba(195,214,237,1) 100%);
+    font-family: 'Comic Sans MS', cursive; 
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-container h1 {
+    font-size: 3em;
+    color: #FF69B4;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu-container button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #FF69B4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-container button:hover {
+    background-color: #FF1493;
+}
+
+.game-container {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    overflow: hidden;
+    border: 2px solid #000;
+    background: url('images/fundo.gif')  no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive; 
+}
+
+.game-over-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.game-over-container h1 {
+    font-size: 3em;
+    color: #FF69B4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.game-over-container button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: #FFF;
+    background-color: #FF69B4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.game-over-container button:hover {
+    background-color: #FF1493;
+}
+
+.score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px; 
+    font-family: 'Comic Sans MS', cursive; 
+    color: #FF69B4; 
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); 
+    display: flex; 
+    align-items: center; 
+    z-index: 1000;
+    -webkit-text-stroke: 1px black; 
+    text-stroke: 1px black; 
+}
+
+
+.score::before {
+    content: '❤️'; 
+    margin-right: 5px; 
+}
+
+.character {
+    position: absolute;
+    bottom: 20px; 
+    width: 80px; 
+    height: 80px; 
+    background: url('images/running.gif') no-repeat center/cover;
+    transition: bottom 0.1s;
+}
+.character.jumping {
+    animation: jump 0.1s ease;
+}
+
+@keyframes jump {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.clouds {
+    animation: moveClouds 40s linear infinite;
+    position: relative;
+}
+
+.cloud, .cloud2 {
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    bottom: 80%; 
+}
+
+.cloud {
+    background: url('images/cloudwth.gif') no-repeat center/cover;
+}
+
+.cloud2 {
+    background: url('images/cloud.gif') no-repeat center/cover;
+}
+
+@keyframes moveClouds {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 0;
+    width: 70px; 
+    height: 70px; 
+    background: url('images/moita.png') no-repeat center/cover;
+    animation: moveObstacle 5s linear infinite;
+}
+
+@keyframes moveObstacle {
+    from { right: -100px; }
+    to { right: 100%; }
+}
+
+.candy1, .candy2 {
+    position: absolute;
+    bottom: 70px;
+    width: 35px; 
+    height: 35px; 
+    animation: moveCandy 6s linear infinite;
+}
+
+.candy1 {
+    background: url('images/candy.png') no-repeat center/cover;
+}
+
+.candy2 {
+    background: url('images/candy2.png') no-repeat center/cover;
+}
+
+@keyframes moveCandy {
+    from { right: -50px; }
+    to { right: 100%; }
+}

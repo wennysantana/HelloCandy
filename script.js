@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.querySelector('.game-container');
 
     
-    const menuMusic = new Audio('menu.mp3');
-    const gameMusic = new Audio('game.mp3');
-    const gameOverMusic = new Audio('gameover.mp3');
+    const menuMusic = new Audio('audios/menu.mp3');
+    const gameMusic = new Audio('audios/game.mp3');
+    const gameOverMusic = new Audio('audios/gameover.mp3');
 
     
     menuMusic.loop = true;
